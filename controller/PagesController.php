@@ -52,6 +52,8 @@ class PagesController
             $name = $_POST['searched_text'];
         }
         $_SESSION['searchedUser'] = $usersgroup->getAllUsers($roleId, $name);
+        $_SESSION['subroles'] = $usersgroup->getSubRoles();
+        $_SESSION['ssubroles'] = $usersgroup->getSubSubRoles();
 		View::load('pages', 'resultscreen');
 	}
     /*

@@ -208,4 +208,32 @@ class User
         }
         return false;
     }
+    /*
+     * Method for returning subroles!
+     */
+    public function getSubRoles()
+    {
+        $query = 'select * from subroles';
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        }
+        return false;
+    }
+    /*
+     * Method for returning subsubroles!
+     */
+    public function getSubSubRoles()
+    {
+        $query = 'select * from sub_subroles';
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if ($result) {
+            return $result;
+        }
+        return false;
+    }
 }
